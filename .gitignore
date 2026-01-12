@@ -1,0 +1,25 @@
+# Xcode
+DerivedData/
+build/
+*.xcworkspace
+!default.xcworkspace
+*.xccheckout
+*.xcuserstate
+*.xcuserdata/
+
+# macOS
+.DS_Store
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+
+# Logs
+*.log
+
+# Archives
+*.xcarchive
+
+# App bundles (opcional)
+*.app

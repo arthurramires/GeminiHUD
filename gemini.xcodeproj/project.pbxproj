@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F34DC5952F1540F10048157E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DC5922F1540F10048157E /* ContentView.swift */; };
+		F34DC5962F1540F10048157E /* geminiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DC5932F1540F10048157E /* geminiApp.swift */; };
+		F34DC5972F1540F10048157E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34DC5912F1540F10048157E /* Assets.xcassets */; };
+		F34DC59C2F1541AB0048157E /* GeminiWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DC59B2F1541A80048157E /* GeminiWebView.swift */; };
+		F395613E2F154C510016ABEB /* WebViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395613D2F154C4F0016ABEB /* WebViewManager.swift */; };
+		F39561402F154CF70016ABEB /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395613F2F154CF50016ABEB /* WindowManager.swift */; };
+		F39561442F1553590016ABEB /* HotKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561432F1553580016ABEB /* HotKeyManager.swift */; };
+		F39561462F1554160016ABEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561452F1554150016ABEB /* AppDelegate.swift */; };
+		F39561482F1555D50016ABEB /* MenuBarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561472F1555D40016ABEB /* MenuBarManager.swift */; };
+		F395614A2F15576E0016ABEB /* ClipboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561492F15576E0016ABEB /* ClipboardManager.swift */; };
+		F395614C2F155A480016ABEB /* ClipboardStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395614B2F155A460016ABEB /* ClipboardStateManager.swift */; };
+		F395614E2F155A550016ABEB /* ClipboardOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395614D2F155A540016ABEB /* ClipboardOverlayView.swift */; };
+		F39561502F155DEA0016ABEB /* WindowState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395614F2F155DE90016ABEB /* WindowState.swift */; };
+		F39561522F155F2A0016ABEB /* OverlayTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561512F155F290016ABEB /* OverlayTransitions.swift */; };
+		F39561542F155FBB0016ABEB /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561532F155FBA0016ABEB /* VisualEffectView.swift */; };
+		F39561562F156AAC0016ABEB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561552F156AA90016ABEB /* Notifications.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F34DC5812F1540880048157E /* gemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F34DC5912F1540F10048157E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F34DC5922F1540F10048157E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F34DC5932F1540F10048157E /* geminiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geminiApp.swift; sourceTree = "<group>"; };
+		F34DC59B2F1541A80048157E /* GeminiWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiWebView.swift; sourceTree = "<group>"; };
+		F395613D2F154C4F0016ABEB /* WebViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewManager.swift; sourceTree = "<group>"; };
+		F395613F2F154CF50016ABEB /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		F39561432F1553580016ABEB /* HotKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyManager.swift; sourceTree = "<group>"; };
+		F39561452F1554150016ABEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F39561472F1555D40016ABEB /* MenuBarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarManager.swift; sourceTree = "<group>"; };
+		F39561492F15576E0016ABEB /* ClipboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardManager.swift; sourceTree = "<group>"; };
+		F395614B2F155A460016ABEB /* ClipboardStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardStateManager.swift; sourceTree = "<group>"; };
+		F395614D2F155A540016ABEB /* ClipboardOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardOverlayView.swift; sourceTree = "<group>"; };
+		F395614F2F155DE90016ABEB /* WindowState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowState.swift; sourceTree = "<group>"; };
+		F39561512F155F290016ABEB /* OverlayTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayTransitions.swift; sourceTree = "<group>"; };
+		F39561532F155FBA0016ABEB /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		F39561552F156AA90016ABEB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F34DC57E2F1540880048157E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F34DC5782F1540880048157E = {
+			isa = PBXGroup;
+			children = (
+				F34DC5942F1540F10048157E /* gemini */,
+				F34DC5822F1540880048157E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F34DC5822F1540880048157E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F34DC5812F1540880048157E /* gemini.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F34DC5902F1540F10048157E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F39561452F1554150016ABEB /* AppDelegate.swift */,
+				F34DC5932F1540F10048157E /* geminiApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F34DC5942F1540F10048157E /* gemini */ = {
+			isa = PBXGroup;
+			children = (
+				F34DC5902F1540F10048157E /* App */,
+				F34DC5982F1540F60048157E /* UI */,
+				F34DC59A2F1541110048157E /* Managers */,
+				F34DC5992F15410B0048157E /* Web */,
+				F34DC5912F1540F10048157E /* Assets.xcassets */,
+				F39561592F156C1A0016ABEB /* Infrastructure */,
+			);
+			path = gemini;
+			sourceTree = "<group>";
+		};
+		F34DC5982F1540F60048157E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F39561532F155FBA0016ABEB /* VisualEffectView.swift */,
+				F39561512F155F290016ABEB /* OverlayTransitions.swift */,
+				F395614D2F155A540016ABEB /* ClipboardOverlayView.swift */,
+				F34DC5922F1540F10048157E /* ContentView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		F34DC5992F15410B0048157E /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				F34DC59B2F1541A80048157E /* GeminiWebView.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		F34DC59A2F1541110048157E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F395614F2F155DE90016ABEB /* WindowState.swift */,
+				F395614B2F155A460016ABEB /* ClipboardStateManager.swift */,
+				F39561492F15576E0016ABEB /* ClipboardManager.swift */,
+				F39561472F1555D40016ABEB /* MenuBarManager.swift */,
+				F39561432F1553580016ABEB /* HotKeyManager.swift */,
+				F395613F2F154CF50016ABEB /* WindowManager.swift */,
+				F395613D2F154C4F0016ABEB /* WebViewManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		F39561592F156C1A0016ABEB /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				F39561552F156AA90016ABEB /* Notifications.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F34DC5802F1540880048157E /* gemini */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F34DC58C2F15408A0048157E /* Build configuration list for PBXNativeTarget "gemini" */;
+			buildPhases = (
+				F34DC57D2F1540880048157E /* Sources */,
+				F34DC57E2F1540880048157E /* Frameworks */,
+				F34DC57F2F1540880048157E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = gemini;
+			packageProductDependencies = (
+			);
+			productName = gemini;
+			productReference = F34DC5812F1540880048157E /* gemini.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F34DC5792F1540880048157E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					F34DC5802F1540880048157E = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
+			};
+			buildConfigurationList = F34DC57C2F1540880048157E /* Build configuration list for PBXProject "gemini" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F34DC5782F1540880048157E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = F34DC5822F1540880048157E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F34DC5802F1540880048157E /* gemini */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F34DC57F2F1540880048157E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F34DC5972F1540F10048157E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F34DC57D2F1540880048157E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F39561562F156AAC0016ABEB /* Notifications.swift in Sources */,
+				F34DC5952F1540F10048157E /* ContentView.swift in Sources */,
+				F395614E2F155A550016ABEB /* ClipboardOverlayView.swift in Sources */,
+				F34DC59C2F1541AB0048157E /* GeminiWebView.swift in Sources */,
+				F34DC5962F1540F10048157E /* geminiApp.swift in Sources */,
+				F39561522F155F2A0016ABEB /* OverlayTransitions.swift in Sources */,
+				F395613E2F154C510016ABEB /* WebViewManager.swift in Sources */,
+				F395614C2F155A480016ABEB /* ClipboardStateManager.swift in Sources */,
+				F39561502F155DEA0016ABEB /* WindowState.swift in Sources */,
+				F395614A2F15576E0016ABEB /* ClipboardManager.swift in Sources */,
+				F39561542F155FBB0016ABEB /* VisualEffectView.swift in Sources */,
+				F39561482F1555D50016ABEB /* MenuBarManager.swift in Sources */,
+				F39561462F1554160016ABEB /* AppDelegate.swift in Sources */,
+				F39561402F154CF70016ABEB /* WindowManager.swift in Sources */,
+				F39561442F1553590016ABEB /* HotKeyManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F34DC58A2F15408A0048157E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F34DC58B2F15408A0048157E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		F34DC58D2F15408A0048157E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = gemini/gemini.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				EXCLUDED_ARCHS = x86_64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gemini HUD";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harucode.gemini;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F34DC58E2F15408A0048157E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = gemini/gemini.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				EXCLUDED_ARCHS = x86_64;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Gemini HUD";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.harucode.gemini;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F34DC57C2F1540880048157E /* Build configuration list for PBXProject "gemini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F34DC58A2F15408A0048157E /* Debug */,
+				F34DC58B2F15408A0048157E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F34DC58C2F15408A0048157E /* Build configuration list for PBXNativeTarget "gemini" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F34DC58D2F15408A0048157E /* Debug */,
+				F34DC58E2F15408A0048157E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F34DC5792F1540880048157E /* Project object */;
+}
