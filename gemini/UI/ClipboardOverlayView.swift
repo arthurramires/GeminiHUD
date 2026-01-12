@@ -51,13 +51,10 @@ struct ClipboardOverlayView: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 10)
         .background(
-            VisualEffectView(
-                material: .hudWindow,
-                blendingMode: .withinWindow
-            )
-            .clipShape(
-                RoundedRectangle(cornerRadius: 14, style: .continuous)
-            )
+            VisualEffectView(material: .hudWindow)
+                .clipShape(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                )
         )
         .shadow(radius: 10)
         .scaleEffect(isHovering ? 1.02 : 1.0)

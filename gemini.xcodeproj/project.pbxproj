@@ -23,6 +23,9 @@
 		F39561522F155F2A0016ABEB /* OverlayTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561512F155F290016ABEB /* OverlayTransitions.swift */; };
 		F39561542F155FBB0016ABEB /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561532F155FBA0016ABEB /* VisualEffectView.swift */; };
 		F39561562F156AAC0016ABEB /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39561552F156AA90016ABEB /* Notifications.swift */; };
+		F395615B2F156DC80016ABEB /* PromptHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395615A2F156DC80016ABEB /* PromptHUDView.swift */; };
+		F395615D2F156DD60016ABEB /* PromptWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395615C2F156DD50016ABEB /* PromptWindowManager.swift */; };
+		F395615F2F1589C60016ABEB /* FocusableWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F395615E2F1589C50016ABEB /* FocusableWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		F39561512F155F290016ABEB /* OverlayTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayTransitions.swift; sourceTree = "<group>"; };
 		F39561532F155FBA0016ABEB /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		F39561552F156AA90016ABEB /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		F395615A2F156DC80016ABEB /* PromptHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptHUDView.swift; sourceTree = "<group>"; };
+		F395615C2F156DD50016ABEB /* PromptWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromptWindowManager.swift; sourceTree = "<group>"; };
+		F395615E2F1589C50016ABEB /* FocusableWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusableWindow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,8 @@
 		F34DC5982F1540F60048157E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F395615E2F1589C50016ABEB /* FocusableWindow.swift */,
+				F395615A2F156DC80016ABEB /* PromptHUDView.swift */,
 				F39561532F155FBA0016ABEB /* VisualEffectView.swift */,
 				F39561512F155F290016ABEB /* OverlayTransitions.swift */,
 				F395614D2F155A540016ABEB /* ClipboardOverlayView.swift */,
@@ -116,6 +124,7 @@
 		F34DC59A2F1541110048157E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				F395615C2F156DD50016ABEB /* PromptWindowManager.swift */,
 				F395614F2F155DE90016ABEB /* WindowState.swift */,
 				F395614B2F155A460016ABEB /* ClipboardStateManager.swift */,
 				F39561492F15576E0016ABEB /* ClipboardManager.swift */,
@@ -219,6 +228,9 @@
 				F395614A2F15576E0016ABEB /* ClipboardManager.swift in Sources */,
 				F39561542F155FBB0016ABEB /* VisualEffectView.swift in Sources */,
 				F39561482F1555D50016ABEB /* MenuBarManager.swift in Sources */,
+				F395615F2F1589C60016ABEB /* FocusableWindow.swift in Sources */,
+				F395615B2F156DC80016ABEB /* PromptHUDView.swift in Sources */,
+				F395615D2F156DD60016ABEB /* PromptWindowManager.swift in Sources */,
 				F39561462F1554160016ABEB /* AppDelegate.swift in Sources */,
 				F39561402F154CF70016ABEB /* WindowManager.swift in Sources */,
 				F39561442F1553590016ABEB /* HotKeyManager.swift in Sources */,

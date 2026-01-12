@@ -41,6 +41,7 @@ struct ContentView: View {
             )
         ) { _ in
             clipboardState.refresh()
+            webViewManager.focus()
         }
         .onReceive(
             NotificationCenter.default.publisher(

@@ -6,15 +6,18 @@ final class MenuBarManager {
     private let windowManager: WindowManager
     private let webViewManager: WebViewManager
     private let clipboardManager: ClipboardManager
+    private let promptWindowManager: PromptWindowManager
 
     init(
         windowManager: WindowManager,
         webViewManager: WebViewManager,
-        clipboardManager: ClipboardManager
+        clipboardManager: ClipboardManager,
+        promptWindowManager: PromptWindowManager
     ) {
         self.windowManager = windowManager
         self.webViewManager = webViewManager
         self.clipboardManager = clipboardManager
+        self.promptWindowManager = promptWindowManager
 
         self.statusItem = NSStatusBar.system.statusItem(
             withLength: NSStatusItem.variableLength
@@ -27,71 +30,50 @@ final class MenuBarManager {
         if let button = statusItem.button {
             button.image = NSImage(
                 systemSymbolName: "sparkles",
-                accessibilityDescription: "Gemini"
+                accessibilityDescription: "Gemini HUD"
             )
         }
 
         let menu = NSMenu()
 
-        let toggleWindowItem = NSMenuItem(
-            title: "Show / Hide Gemini",
-            action: #selector(toggleWindow),
-            keyEquivalent: ""
-        )
-
-        let toggleFloatingItem = NSMenuItem(
-            title: "Toggle Floating",
-            action: #selector(toggleFloating),
-            keyEquivalent: ""
-        )
-
-        let sendClipboardItem = NSMenuItem(
-            title: "Send Clipboard to Gemini",
-            action: #selector(sendClipboard),
-            keyEquivalent: ""
+        let newPromptItem = NSMenuItem(
+            title: "New Prompt",
+            action: #selector(showPrompt),
+            keyEquivalent: "p"
         )
 
         let quitItem = NSMenuItem(
-            title: "Quit Gemini",
+            title: "Quit Gemini HUD",
             action: #selector(quitApp),
             keyEquivalent: "q"
         )
 
-        toggleWindowItem.target = self
-        toggleFloatingItem.target = self
-        sendClipboardItem.target = self
+        newPromptItem.target = self
         quitItem.target = self
 
-        menu.addItem(toggleWindowItem)
-        menu.addItem(toggleFloatingItem)
-        menu.addItem(sendClipboardItem)
+        menu.addItem(newPromptItem)
         menu.addItem(NSMenuItem.separator())
         menu.addItem(quitItem)
 
         statusItem.menu = menu
     }
 
-    // MARK: - Actions
+    @objc private func showPrompt() {
+        promptWindowManager.show { [weak self] prompt in
+            guard let self = self else { return }
 
-    @objc private func toggleWindow() {
-        windowManager.toggleVisibility()
-    }
+            self.windowManager.showWindowIfNeeded()
 
-    @objc private func toggleFloating() {
-        windowManager.toggleFloating()
-    }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                self.webViewManager.focus()
 
-    @objc private func sendClipboard() {
-        guard let text = clipboardManager.readText() else { return }
-
-        // 1. Garanta que a janela esteja visível
-        windowManager.showWindowIfNeeded()
-
-        // 2. Aguarde o WebView estar ativo no ciclo de UI
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            self.webViewManager.injectTextIntoGemini(text)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                    self.webViewManager.submitPromptViaClipboard(prompt)
+                }
+            }
         }
     }
+
 
 
     @objc private func quitApp() {

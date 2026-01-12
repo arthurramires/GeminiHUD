@@ -8,45 +8,60 @@ final class WebViewManager {
     init() {
         let config = WKWebViewConfiguration()
         config.websiteDataStore = .default()
-
-        self.webView = WKWebView(
-            frame: .zero,
-            configuration: config
-        )
-
-        self.webView.allowsBackForwardNavigationGestures = true
+        webView = WKWebView(frame: .zero, configuration: config)
     }
 
     func loadGeminiIfNeeded() {
         guard webView.url == nil else { return }
-        let url = URL(string: "https://gemini.google.com")!
-        webView.load(URLRequest(url: url))
+        webView.load(URLRequest(url: URL(string: "https://gemini.google.com")!))
     }
 
-    func injectTextIntoGemini(_ text: String) {
-        let escapedText = text
-            .replacingOccurrences(of: "\\", with: "\\\\")
-            .replacingOccurrences(of: "\"", with: "\\\"")
-            .replacingOccurrences(of: "\n", with: "\\n")
+    // MARK: - Real prompt submission (clipboard-based)
 
-        let js = """
-        (function() {
-            const textarea = document.querySelector('textarea');
-            if (!textarea) return;
+    func submitPromptViaClipboard(_ text: String) {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(text, forType: .string)
 
-            textarea.focus();
-            textarea.value = "\(escapedText)";
-            textarea.dispatchEvent(new Event('input', { bubbles: true }));
-        })();
-        """
+        focus()
 
-        webView.evaluateJavaScript(js)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+            // Cmd+V
+            let paste = NSEvent.keyEvent(
+                with: .keyDown,
+                location: .zero,
+                modifierFlags: [.command],
+                timestamp: 0,
+                windowNumber: 0,
+                context: nil,
+                characters: "v",
+                charactersIgnoringModifiers: "v",
+                isARepeat: false,
+                keyCode: 9 // V
+            )
+
+            NSApp.postEvent(paste!, atStart: false)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                // Enter
+                let enter = NSEvent.keyEvent(
+                    with: .keyDown,
+                    location: .zero,
+                    modifierFlags: [.command], // Cmd+Enter força o envio
+                    timestamp: 0,
+                    windowNumber: 0,
+                    context: nil,
+                    characters: "\r",
+                    charactersIgnoringModifiers: "\r",
+                    isARepeat: false,
+                    keyCode: 36
+                )
+                NSApp.postEvent(enter!, atStart: false)
+            }
+        }
     }
 
-    /// 🔑 Foco correto para permitir Paste fora do Xcode
     func focus() {
         guard let window = webView.window else { return }
-
         NSApp.activate(ignoringOtherApps: true)
         window.makeKeyAndOrderFront(nil)
         window.makeFirstResponder(webView)

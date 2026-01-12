@@ -3,31 +3,49 @@ import Carbon
 
 final class HotKeyManager {
 
-    private var hotKeyRef: EventHotKeyRef?
-    private let hotKeyID = EventHotKeyID(
-        signature: OSType(UInt32(truncatingIfNeeded: "GEMI".hashValue)),
-        id: 1
-    )
+    // MARK: - Types
 
-    private let handler: () -> Void
+    private final class HandlerBox {
+        let handler: () -> Void
+        init(_ handler: @escaping () -> Void) {
+            self.handler = handler
+        }
+    }
 
-    init(handler: @escaping () -> Void) {
-        self.handler = handler
-        registerHotKey()
-        installHandler()
+    // MARK: - Properties
+
+    private var hotKeyRefs: [EventHotKeyRef?] = []
+    private var handlers: [UInt32: HandlerBox] = [:]
+    private var nextID: UInt32 = 1
+
+    // MARK: - Init
+
+    init() {
+        installGlobalHandler()
     }
 
     deinit {
-        unregisterHotKey()
+        unregisterAll()
     }
 
-    // MARK: - Registration
+    // MARK: - Public API
 
-    private func registerHotKey() {
-        let keyCode = UInt32(kVK_ANSI_G)
-        let modifiers = UInt32(optionKey)
+    func register(
+        keyCode: UInt32,
+        modifiers: UInt32,
+        handler: @escaping () -> Void
+    ) {
+        var hotKeyRef: EventHotKeyRef?
 
-        RegisterEventHotKey(
+        let id = nextID
+        nextID += 1
+
+        let hotKeyID = EventHotKeyID(
+            signature: OSType(UInt32(truncatingIfNeeded: "GEMI".hashValue)),
+            id: id
+        )
+
+        let status = RegisterEventHotKey(
             keyCode,
             modifiers,
             hotKeyID,
@@ -35,18 +53,16 @@ final class HotKeyManager {
             0,
             &hotKeyRef
         )
+
+        guard status == noErr else { return }
+
+        handlers[id] = HandlerBox(handler)
+        hotKeyRefs.append(hotKeyRef)
     }
 
+    // MARK: - Private
 
-    private func unregisterHotKey() {
-        if let hotKeyRef {
-            UnregisterEventHotKey(hotKeyRef)
-        }
-    }
-
-    // MARK: - Event handling
-
-    private func installHandler() {
+    private func installGlobalHandler() {
         var eventSpec = EventTypeSpec(
             eventClass: OSType(kEventClassKeyboard),
             eventKind: UInt32(kEventHotKeyPressed)
@@ -54,13 +70,28 @@ final class HotKeyManager {
 
         InstallEventHandler(
             GetApplicationEventTarget(),
-            { _, _, userData in
+            { _, event, userData in
+                guard let event else { return noErr }
+
+                var hotKeyID = EventHotKeyID()
+                GetEventParameter(
+                    event,
+                    EventParamName(kEventParamDirectObject),
+                    EventParamType(typeEventHotKeyID),
+                    nil,
+                    MemoryLayout<EventHotKeyID>.size,
+                    nil,
+                    &hotKeyID
+                )
+
                 let manager = Unmanaged<HotKeyManager>
                     .fromOpaque(userData!)
                     .takeUnretainedValue()
 
-                DispatchQueue.main.async {
-                    manager.handler()
+                if let handlerBox = manager.handlers[hotKeyID.id] {
+                    DispatchQueue.main.async {
+                        handlerBox.handler()
+                    }
                 }
 
                 return noErr
@@ -70,5 +101,15 @@ final class HotKeyManager {
             UnsafeMutableRawPointer(Unmanaged.passUnretained(self).toOpaque()),
             nil
         )
+    }
+
+    private func unregisterAll() {
+        for ref in hotKeyRefs {
+            if let ref {
+                UnregisterEventHotKey(ref)
+            }
+        }
+        hotKeyRefs.removeAll()
+        handlers.removeAll()
     }
 }
