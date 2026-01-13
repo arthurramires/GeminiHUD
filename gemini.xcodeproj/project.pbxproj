@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F34124152F15B9CB009676E9 /* SpeechInputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34124142F15B9CB009676E9 /* SpeechInputManager.swift */; };
+		F34124172F15B9CD009676E9 /* SpeechInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34124162F15B9CD009676E9 /* SpeechInputViewModel.swift */; };
+		F34124192F15BB6E009676E9 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F34124182F15BB6E009676E9 /* Info.plist */; };
 		F34DC5952F1540F10048157E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DC5922F1540F10048157E /* ContentView.swift */; };
 		F34DC5962F1540F10048157E /* geminiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DC5932F1540F10048157E /* geminiApp.swift */; };
 		F34DC5972F1540F10048157E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F34DC5912F1540F10048157E /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F34124142F15B9CB009676E9 /* SpeechInputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechInputManager.swift; sourceTree = "<group>"; };
+		F34124162F15B9CD009676E9 /* SpeechInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechInputViewModel.swift; sourceTree = "<group>"; };
+		F34124182F15BB6E009676E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34DC5812F1540880048157E /* gemini.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = gemini.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34DC5912F1540F10048157E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F34DC5922F1540F10048157E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,6 +71,7 @@
 		F34DC5782F1540880048157E = {
 			isa = PBXGroup;
 			children = (
+				F34124182F15BB6E009676E9 /* Info.plist */,
 				F34DC5942F1540F10048157E /* gemini */,
 				F34DC5822F1540880048157E /* Products */,
 			);
@@ -132,6 +139,8 @@
 				F39561432F1553580016ABEB /* HotKeyManager.swift */,
 				F395613F2F154CF50016ABEB /* WindowManager.swift */,
 				F395613D2F154C4F0016ABEB /* WebViewManager.swift */,
+				F34124142F15B9CB009676E9 /* SpeechInputManager.swift */,
+				F34124162F15B9CD009676E9 /* SpeechInputViewModel.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -182,11 +191,12 @@
 				};
 			};
 			buildConfigurationList = F34DC57C2F1540880048157E /* Build configuration list for PBXProject "gemini" */;
-			developmentRegion = en;
+			developmentRegion = "pt-BR";
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = F34DC5782F1540880048157E;
 			minimizedProjectReferenceProxies = 1;
@@ -205,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34124192F15BB6E009676E9 /* Info.plist in Resources */,
 				F34DC5972F1540F10048157E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,12 +236,14 @@
 				F395613E2F154C510016ABEB /* WebViewManager.swift in Sources */,
 				F395614C2F155A480016ABEB /* ClipboardStateManager.swift in Sources */,
 				F39561502F155DEA0016ABEB /* WindowState.swift in Sources */,
+				F34124172F15B9CD009676E9 /* SpeechInputViewModel.swift in Sources */,
 				F395614A2F15576E0016ABEB /* ClipboardManager.swift in Sources */,
 				F39561542F155FBB0016ABEB /* VisualEffectView.swift in Sources */,
 				F39561482F1555D50016ABEB /* MenuBarManager.swift in Sources */,
 				F395615F2F1589C60016ABEB /* FocusableWindow.swift in Sources */,
 				F395615B2F156DC80016ABEB /* PromptHUDView.swift in Sources */,
 				F395615D2F156DD60016ABEB /* PromptWindowManager.swift in Sources */,
+				F34124152F15B9CB009676E9 /* SpeechInputManager.swift in Sources */,
 				F39561462F1554160016ABEB /* AppDelegate.swift in Sources */,
 				F39561402F154CF70016ABEB /* WindowManager.swift in Sources */,
 				F39561442F1553590016ABEB /* HotKeyManager.swift in Sources */,
@@ -292,6 +305,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -349,6 +364,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -369,18 +386,33 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = YES;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				EXCLUDED_ARCHS = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = gemini/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gemini HUD";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Usamos o microfone para capturar sua voz e transcrever o texto no prompt.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Usamos o reconhecimento de fala para transcrever sua voz localmente no dispositivo.";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harucode.gemini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -404,18 +436,33 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_APP_SANDBOX = YES;
+				ENABLE_INCOMING_NETWORK_CONNECTIONS = NO;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = NO;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = YES;
+				ENABLE_RESOURCE_ACCESS_BLUETOOTH = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = YES;
+				ENABLE_RESOURCE_ACCESS_PRINTING = NO;
+				ENABLE_RESOURCE_ACCESS_USB = NO;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				EXCLUDED_ARCHS = x86_64;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = gemini/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Gemini HUD";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Usamos o microfone para capturar sua voz e transcrever o texto no prompt.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Usamos o reconhecimento de fala para transcrever sua voz localmente no dispositivo.";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.harucode.gemini;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;

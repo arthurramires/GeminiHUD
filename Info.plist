@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Gemini HUD</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Usamos o microfone para capturar sua voz e transcrever o texto no prompt.</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Usamos o reconhecimento de fala para transcrever sua voz localmente no dispositivo.</string>
+	<key>CFBundleExecutable</key>
+	<string></string>
+</dict>
+</plist>
