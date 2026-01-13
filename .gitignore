@@ -20,6 +20,3 @@ Package.resolved
 
 # Archives
 *.xcarchive
-
-# App bundles (opcional)
-*.app

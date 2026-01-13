@@ -6,6 +6,7 @@ struct PromptHUDView: View {
     @FocusState private var isFocused: Bool
 
     @StateObject private var speechVM = SpeechInputViewModel()
+    @State private var gradientPhase: CGFloat = 0
 
     let onSubmit: (String) -> Void
     let onDismiss: () -> Void
@@ -19,14 +20,16 @@ struct PromptHUDView: View {
         } label: {
             ZStack {
                 Circle()
-                    .fill(Color.accentColor.opacity(speechVM.uiState == .recording ? 0.25 : 0.12))
+                    .fill(Color.accentColor.opacity(0.16))
                     .frame(width: 28, height: 28)
-                    .scaleEffect(speechVM.uiState == .recording ? 1.08 : 1.0)
-                    .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: speechVM.uiState == .recording)
+                    .overlay(
+                        Circle().strokeBorder(Color.white.opacity(0.18), lineWidth: 1)
+                    )
+                    .scaleEffect(1.0)
 
                 Image(systemName: iconNameForMic())
-                    .font(.system(size: 14, weight: .semibold))
-                    .symbolRenderingMode(.hierarchical)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(.primary)
             }
         }
         .buttonStyle(.plain)
@@ -40,8 +43,8 @@ struct PromptHUDView: View {
 
     private func iconNameForMic() -> String {
         switch speechVM.uiState {
-        case .idle: return "mic"
-        case .recording: return "waveform"
+        case .idle: return "mic.fill"
+        case .recording: return "stop.fill"
         case .transcribing: return "hourglass"
         case .readyToSend: return "checkmark"
         case .error: return "exclamationmark.triangle"
@@ -82,6 +85,7 @@ struct PromptHUDView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: 14, alignment: .leading)
         .padding(.leading, 34)
     }
 
@@ -118,20 +122,52 @@ struct PromptHUDView: View {
         }
         .padding(.leading, 16)
         .padding(.trailing, 40) // Espaço para o botão fechar
-        .padding(.vertical, 12)
+        .padding(.vertical, 10)
         .frame(width: 520)
         .background(
-            ZStack {
-                VisualEffectView(material: .hudWindow)
-                Color.black.opacity(0.3) // Reforça o contraste
-            }
-            .clipShape(
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-            )
+            VisualEffectView(material: .hudWindow)
+                .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         )
         .overlay(
-            RoundedRectangle(cornerRadius: 18)
-                .stroke(.white.opacity(0.2), lineWidth: 1) // Borda mais visível
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .strokeBorder(
+                    AngularGradient(
+                        gradient: Gradient(colors: [
+                            Color(red: 0.94, green: 0.28, blue: 0.61),
+                            Color(red: 0.43, green: 0.71, blue: 0.98),
+                            Color(red: 0.74, green: 0.67, blue: 0.99),
+                            Color(red: 1.00, green: 0.72, blue: 0.39),
+                            Color(red: 0.94, green: 0.28, blue: 0.61)
+                        ]),
+                        center: .center,
+                        angle: .degrees(Double(gradientPhase))
+                    ).opacity(speechVM.uiState == .recording ? 0.95 : 0.30),
+                    lineWidth: 1.0
+                )
+                .blendMode(.plusLighter)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .strokeBorder(
+                    LinearGradient(colors: [Color.white.opacity(0.18), Color.white.opacity(0.06)], startPoint: .top, endPoint: .bottom),
+                    lineWidth: 0.5
+                )
+        )
+        .overlay(
+            Group {
+                if case .recording = speechVM.uiState {
+                    RoundedRectangle(cornerRadius: 22, style: .continuous)
+                        .strokeBorder(
+                            RadialGradient(colors: [
+                                Color.white.opacity(0.16),
+                                Color.white.opacity(0.00)
+                            ], center: .center, startRadius: 0, endRadius: 220),
+                            lineWidth: 1.0
+                        )
+                        .blendMode(.screen)
+                        .opacity(0.7)
+                }
+            }
         )
         .overlay(alignment: .trailing) { // Botão Fechar independente
             Button {
@@ -144,12 +180,24 @@ struct PromptHUDView: View {
             .buttonStyle(.plain)
             .padding(.trailing, 12)
         }
-        .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 10) // Sombra mais forte
+        .shadow(color: Color.black.opacity(0.25), radius: 14, x: 0, y: 8)
         .onAppear {
             text = ""
             // Pequeno delay para garantir que a janela está ativa antes de focar
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 isFocused = true
+            }
+        }
+        .onChange(of: speechVM.uiState) { _, newState in
+            if case .recording = newState {
+                gradientPhase = 0
+                withAnimation(.linear(duration: 6.0).repeatForever(autoreverses: false)) {
+                    gradientPhase = 360
+                }
+            } else {
+                withAnimation(.easeOut(duration: 0.2)) {
+                    gradientPhase = 0
+                }
             }
         }
         .onExitCommand {
@@ -164,4 +212,3 @@ struct PromptHUDView: View {
         onDismiss()
     }
 }
-
